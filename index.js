@@ -4,27 +4,24 @@
 - Output a list displaying each item and its price
 - Output the total at the end */
 
-const shoppingListItems = ['Milk', 'Cocoa' , 'Salad', 'Carrots', 'Tomatoes', 'Ready meals'];
-const shoppingListPrices = [ 1.20, 2.00, 2.00, 2.00, 2.50, 5.00];
-let askTheUser=true
+const shoppingList = [
+    { name: 'Milk', price: 1.2 },
+    { name: 'Cocoa', price: 2.0 },
+    { name: 'Salad', price: 2.0 },
+    { name: 'Carrots', price: 2.0 },
+    { name: 'Tomatoes', price: 2.5 },
+    { name: 'Ready meals', price: 5 }
+  ]
 
-while(askTheUser==true){
-    const addItem = prompt("Add new item?")
-    shoppingListItems.push(addItem)
-    const addPrice = prompt("Add the new item price?")
-    shoppingListPrices.push(addPrice)
-    if (Number.isNaN(addPrice) || addPrice<0){
-        alert("Enter a positive number")
-    } else if(addItem==null || addItem=="" || addPrice==null || addPrice=="") {
-        alert("You need to write something!!!")
-    }
-    else{
-        let confirmTheUser = confirm("Would you like to add more?")
-        if (confirmTheUser == true) {
-            askTheUser= true;
-        }else {
-            askTheUser = false;
-        }
-    }
+  const userItemName = prompt('What item would you like to add?')
+const userItemPrice = Number(prompt('How much does it cost?'))
 
+const newItem = { name: userItemName, price: userItemPrice }
+shoppingList.push(newItem)
+
+let total= 0
+for (const item of shoppingListItems){ 
+total += item.addPrice
+console.log(`${item.name} costs £${item.price.toFixed(2)}`)
 }
+console.log(`The total will be: £${total.toFixed(2)})
